@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".demoOkHttpGet.OkHttpGetActivity" />
-        <activity android:name=".demoOkHttpPost.OkHttpPostActivity"></activity>
+        <activity android:name=".demoOkHttpPost.OkHttpPostActivity" />
+        <activity android:name=".demoOkHttpPost2.OkHttpPost2Activity"></activity>
     </application>
 
 </manifest>
