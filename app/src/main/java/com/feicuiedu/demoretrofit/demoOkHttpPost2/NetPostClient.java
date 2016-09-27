@@ -12,7 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 /**
  * Created by 123 on 2016/9/27.
  */
-public class NetPostClient implements UserApi{
+public class NetPostClient implements UserApi {
 
     private String BASE_URL = "http://admin.syfeicuiedu.com";
 
@@ -35,6 +35,12 @@ public class NetPostClient implements UserApi{
                 .addInterceptor(interceptor)
                 .build();
 
+//        OkHttpClient okHttpClient = new OkHttpClient();
+
+//        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+//        builder.addInterceptor(interceptor);
+//        builder.build();
+
     }
 
     // 完成注册网络连接接口的实现
@@ -54,7 +60,12 @@ public class NetPostClient implements UserApi{
     }
 
     @Override
-    public Call login() {
-        return null;
+    public Call getData() {
+        Request request = new Request.Builder()
+                .url("https://api.github.com/users/gqq")
+                .get()
+                .build();
+        return okHttpClient.newCall(request);
     }
+
 }

@@ -10,7 +10,10 @@ import okhttp3.Call;
  */
 public interface UserApi {
 
+    // 注册
     Call register(User user);
 
-    Call login();// 未实现
+    // 通过Get请求来进行
+    Call getData();
+
 }
