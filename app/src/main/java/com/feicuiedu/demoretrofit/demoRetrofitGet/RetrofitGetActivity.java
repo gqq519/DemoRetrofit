@@ -27,7 +27,7 @@ public class RetrofitGetActivity extends AppCompatActivity {
 
         // 进行请求
         NetRetrofitClient.getInsatnce().getData().enqueue(new Callback<ResponseBody>() {
-
+            // 封装好的，可以进行UI操作
             // 响应成功
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
