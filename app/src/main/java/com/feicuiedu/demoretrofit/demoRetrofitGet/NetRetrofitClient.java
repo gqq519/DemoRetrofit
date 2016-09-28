@@ -1,6 +1,7 @@
 package com.feicuiedu.demoretrofit.demoRetrofitGet;
 
 import com.feicuiedu.demoretrofit.demoOkHttpPost.User;
+import com.feicuiedu.demoretrofit.demoRetrofitPost.UserResult;
 
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -52,7 +53,7 @@ public class NetRetrofitClient implements RetrofitUserApi{
     }
 
     @Override
-    public Call<ResponseBody> userRegister(@Body User user) {
+    public Call<UserResult> userRegister(@Body User user) {
         return userApi.userRegister(user);
     }
 }

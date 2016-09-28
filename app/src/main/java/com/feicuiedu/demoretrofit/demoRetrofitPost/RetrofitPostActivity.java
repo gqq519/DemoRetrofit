@@ -37,18 +37,21 @@ public class RetrofitPostActivity extends AppCompatActivity {
         User user = new User(etUsername.getText().toString(),etPassrword.getText().toString());
 
         // 去进行请求
-        NetRetrofitClient.getInsatnce().userRegister(user).enqueue(new Callback<ResponseBody>() {
+        NetRetrofitClient.getInsatnce().userRegister(user).enqueue(new Callback<UserResult>() {
 
-            // 得到响应
+            // 响应成功
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(RetrofitPostActivity.this, "响应成功", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<UserResult> call, Response<UserResult> response) {
+                UserResult result = response.body();
+                Toast.makeText(RetrofitPostActivity.this, "响应成功:信息"+result.getMsg(), Toast.LENGTH_SHORT).show();
+
             }
 
             // 响应失败
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<UserResult> call, Throwable t) {
                 Toast.makeText(RetrofitPostActivity.this, "响应失败", Toast.LENGTH_SHORT).show();
+
             }
         });
 

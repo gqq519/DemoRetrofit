@@ -1,6 +1,9 @@
 package com.feicuiedu.demoretrofit.demoRetrofitGet;
 
 import com.feicuiedu.demoretrofit.demoOkHttpPost.User;
+import com.feicuiedu.demoretrofit.demoRetrofitPost.UserResult;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -37,10 +40,14 @@ public interface RetrofitUserApi {
      return okHttpClient.newCall(request);
      * @return
      *
-     * GSON 转换器，实体类转换成字符串
+     * GSON 转换器，实体类转换成字符串，字符串转换成实体类（集合）
+     * json字符串--->集合实体类
+     * xml字符串--->
+     *
      */
-
     @POST("/Handler/UserHandler.ashx?action=register")
-    Call<ResponseBody> userRegister(@Body User user);
+    Call<UserResult> userRegister(@Body User user);
+
+
 
 }
