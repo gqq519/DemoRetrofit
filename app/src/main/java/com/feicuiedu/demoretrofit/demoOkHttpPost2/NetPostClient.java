@@ -35,17 +35,21 @@ public class NetPostClient implements UserApi {
                 .addInterceptor(interceptor)
                 .build();
 
-//        OkHttpClient okHttpClient = new OkHttpClient();
+//        // UserApi
+//        UserApi userApi = ....
+//        userApi.getData();
 
-//        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//        builder.addInterceptor(interceptor);
-//        builder.build();
+        // 分析如何使用
+//        Retrofit retrofit = ....;
+//        UserApi userApi1 = ....；
+//        userApi1.getData();
 
     }
 
     // 完成注册网络连接接口的实现
     @Override
     public Call register(User user) {
+
         // 请求的构建
         Gson gson = new Gson();
         String content = gson.toJson(user);

@@ -12,6 +12,7 @@ import com.feicuiedu.demoretrofit.demoOkHttpGet.OkHttpGetActivity;
 import com.feicuiedu.demoretrofit.demoOkHttpGet2.OkHttpGet2Activity;
 import com.feicuiedu.demoretrofit.demoOkHttpPost.OkHttpPostActivity;
 import com.feicuiedu.demoretrofit.demoOkHttpPost2.OkHttpPost2Activity;
+import com.feicuiedu.demoretrofit.demoRetrofitGet.RetrofitGetActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 new Demo("OkHttp的GET请求",new Intent(this,OkHttpGetActivity.class)),
                 new Demo("OkHttp的POST请求",new Intent(this, OkHttpPostActivity.class)),
                 new Demo("OkHttp的POST请求(简单拆分)",new Intent(this, OkHttpPost2Activity.class)),
-                new Demo("OkHttp的GET请求(简单拆分)",new Intent(this, OkHttpGet2Activity.class))
+                new Demo("OkHttp的GET请求(简单拆分)",new Intent(this, OkHttpGet2Activity.class)),
+                new Demo("Retrofit的GET请求",new Intent(this, RetrofitGetActivity.class))
         };
     }
 
