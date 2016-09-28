@@ -5,13 +5,18 @@ import com.feicuiedu.demoretrofit.demoRetrofitPost.UserResult;
 
 import java.util.List;
 
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -29,6 +34,9 @@ public interface RetrofitUserApi {
      */
     @GET("https://api.github.com/users/gqq")
     Call<ResponseBody> getData();
+
+    @POST("/Handler/UserHandler.ashx?action=register")
+    Call<UserResult> userRegister(@Body User user);
 
     /**
      * // 请求的构建
@@ -75,6 +83,12 @@ public interface RetrofitUserApi {
      *      q=....,w=...--------->结果,
      *      q=....--------->结果
      *
+     * 3. 综合使用  POST https://api.github.com/repos/{owner}/{repo}
+     *
+     * 4.FormUrlEncoded 以表单形式提交
+     *
+     * 5.多部分提交,Multipart
+     *
      */
 
     // user zxc,
@@ -90,7 +104,15 @@ public interface RetrofitUserApi {
     @GET("https://api.github.com/search/issues")
     Call<ResponseBody> getData2(@Query("q")String daa,@Query("w")String w);
 
+    @POST("https://api.github.com/repos/{owner}")
+    Call<ResponseBody> getAA(@Body User user,@Path("owner")String s,@Query("q")String q);
 
+    @FormUrlEncoded
+    @POST("https://api.github.com/repos/")
+    // name,password;
+    Call<ResponseBody> getUserA(@Field("name")String name,@Field("password")String password);
 
-
+    @Multipart
+    @POST("http://hjhkjlgk;")
+    Call<ResponseBody> getMult(@Part("photo")String photo, @Part("user") RequestBody user,@Part("other")RequestBody other);
 }
