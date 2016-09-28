@@ -12,6 +12,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by 123 on 2016/9/28.
@@ -55,10 +57,38 @@ public interface RetrofitUserApi {
     /**
      * 注解
      * 1. 请求方式：@GET("url"),@POST("url")
-     * 2. 请求头：@Headers("一条")，@Heasers({"","",""})
+     * 2. 请求头：@Headers("一条")，@Heasers({"","",""})，@Header("Accept-type")String ac动态修改头信息
      * 3. 请求体：@Body User user，设置请求体
      *
      */
+
+    /**
+     * URL 注解
+     *
+     * 1.url 可替换块 {user}    @Path
+     *      https://api.github.com/users/gqq/name
+     *      https://api.github.com/users/{user}/name
+     *      https://api.github.com/repos/{owner}/{repo}
+     * 2. https://api.github.com/search/issues?q=java&w=zxc&.....;
+     *
+     *      https://api.github.com/search/issues
+     *      q=....,w=...--------->结果,
+     *      q=....--------->结果
+     *
+     */
+
+    // user zxc,
+//    @GET("https://api.github.com/users/{user}/name")
+    @GET("https://api.github.com/repos/{owner}/{repo}")
+    Call<ResponseBody> getUser(@Path("owner")String user,@Path("repo")String repo);
+
+
+    // 把请求地址写死：https://api.github.com/search/issues?q=abc&w=zzz;
+
+    // daa--abc,w---a,请求https://api.github.com/search/issues?q=abc&w=a
+    // daa----xcv,w---b,请求https://api.github.com/search/issues?q=xcv&w=b
+    @GET("https://api.github.com/search/issues")
+    Call<ResponseBody> getData2(@Query("q")String daa,@Query("w")String w);
 
 
 
