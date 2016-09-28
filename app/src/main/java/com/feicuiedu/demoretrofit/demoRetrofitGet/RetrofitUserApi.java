@@ -9,6 +9,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -43,10 +45,21 @@ public interface RetrofitUserApi {
      * GSON 转换器，实体类转换成字符串，字符串转换成实体类（集合）
      * json字符串--->集合实体类
      * xml字符串--->
+     */
+
+
+    @Headers({"Accept-type:json","....","......"})
+    @POST("/Handler/UserHandler.ashx?action=register")
+    Call<UserResult> userRegister(@Body User user, @Header("Accept-type")String ac);
+
+    /**
+     * 注解
+     * 1. 请求方式：@GET("url"),@POST("url")
+     * 2. 请求头：@Headers("一条")，@Heasers({"","",""})
+     * 3. 请求体：@Body User user，设置请求体
      *
      */
-    @POST("/Handler/UserHandler.ashx?action=register")
-    Call<UserResult> userRegister(@Body User user);
+
 
 
 
